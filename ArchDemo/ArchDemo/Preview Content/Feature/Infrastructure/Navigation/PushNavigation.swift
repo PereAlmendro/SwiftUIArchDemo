@@ -25,9 +25,7 @@ struct PushNavigation<Content: View, Label: View>: View {
     var body: some View {
         NavigationLink(
             isActive: $isActive,
-            destination: {
-                destination()
-            },
+            destination: { destination() },
             label: label
         )
     }

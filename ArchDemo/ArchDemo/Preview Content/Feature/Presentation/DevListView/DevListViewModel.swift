@@ -25,6 +25,8 @@ final class DevListViewModel: ViewModel {
         // MARK: - UI & Computed properties
         var loading: Bool = true
         var error: String?
+
+        // MARK: - Lokalised texts
     }
 
     @Published var state: State

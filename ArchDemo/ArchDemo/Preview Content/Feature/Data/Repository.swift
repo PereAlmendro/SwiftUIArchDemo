@@ -7,7 +7,6 @@
 import Dependencies
 import Foundation
 
-
 struct Repository: RepositoryProtocol {
 
     func getDevelopers() async throws -> [Developer] {

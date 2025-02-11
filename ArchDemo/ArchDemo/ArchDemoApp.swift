@@ -9,12 +9,15 @@ import SwiftUI
 
 @main
 struct ArchDemoApp: App {
+    @State var listState: DevListViewModel.State? = DevListViewModel.State()
     var body: some Scene {
         WindowGroup {
-            let viewModel = DevListViewModel(
-                state: .init()
-            )
-            DevListView(viewModel: viewModel)
+            Text("SPLASH SCREEN")
+                .addListRoute(
+                    state: $listState,
+                    presentation: .fullscreen
+                )
         }
+
     }
 }

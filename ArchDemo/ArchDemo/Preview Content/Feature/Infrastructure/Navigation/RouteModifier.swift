@@ -8,22 +8,32 @@
 import Foundation
 import SwiftUI
 
+enum RoutePresentation {
+    case fullscreen
+    case push
+    case sheet
+    case bottomSheet
+}
+
 /// Manages the navigation logic given a state.
 /// The navigation is fired when the state contains value, and dismissed if the state becames nil.
-struct Route<Destination: View, State: Sendable>: ViewModifier {
+struct Route<Destination: View, State>: ViewModifier {
+
     @Binding var state: State?
-    let fullScreen: Bool
-    let pushNavigation: Bool
+    let presentation: RoutePresentation
     @ViewBuilder var destination: () -> Destination
 
     func body(content: Content) -> some View {
-        if fullScreen {
+
+        switch presentation {
+        case .fullscreen:
             content
                 .fullScreenCover(
                     isPresented: .isNotNil($state),
                     content: destination
                 )
-        } else if pushNavigation {
+
+        case .push:
             // iOS >= 16 push navigation ( requires view to be inside a NavigationStack )
             // this can only be used when the minimum supported version is iOS 16.0
             content
@@ -39,12 +49,17 @@ struct Route<Destination: View, State: Sendable>: ViewModifier {
 //                    )
 //                    content
 //                }
-        } else  {
+
+        case .sheet:
             content
                 .sheet(
                     isPresented: .isNotNil($state),
                     content: destination
                 )
+
+        case .bottomSheet:
+            // NOT IMPLEMENTED
+            content
         }
     }
 }

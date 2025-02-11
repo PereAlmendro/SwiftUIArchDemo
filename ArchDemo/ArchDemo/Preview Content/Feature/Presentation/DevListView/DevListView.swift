@@ -45,14 +45,15 @@ struct DevListView: View {
             // MARK: - Add routing
             .addDetailRoute(
                 state: $viewModel.state.pushDetailState,
-                pushNavigation: true
+                presentation: .push
             )
             .addDetailRoute(
-                state: $viewModel.state.sheetDetailState
+                state: $viewModel.state.sheetDetailState,
+                presentation: .sheet
             )
             .addDetailRoute(
                 state: $viewModel.state.fullScreenDetailState,
-                fullScreen: true
+                presentation: .fullscreen
             )
         }
         .onAppear {

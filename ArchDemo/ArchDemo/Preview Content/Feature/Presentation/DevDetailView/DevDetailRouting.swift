@@ -11,14 +11,12 @@ import SwiftUI
 extension View {
     func addDetailRoute(
         state: Binding<DevDetailViewModel.State?>,
-        fullScreen: Bool = false,
-        pushNavigation: Bool = false
+        presentation: RoutePresentation
     ) -> some View {
         modifier(
             Route(
                 state: state,
-                fullScreen: fullScreen,
-                pushNavigation: pushNavigation,
+                presentation: presentation,
                 destination: {
                     if let state = state.wrappedValue {
                         let viewModel = DevDetailViewModel(
