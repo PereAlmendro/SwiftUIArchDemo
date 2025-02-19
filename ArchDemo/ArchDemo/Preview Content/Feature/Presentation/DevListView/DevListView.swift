@@ -48,17 +48,17 @@ struct DevListView: ScreenView {
             .navigationTitle("Developers")
             // MARK: - Add routing
             .addRoute(
-                screenType: DevDetailView.self,
+                screen: DevDetailView.self,
                 state: $viewModel.state.pushDetailState,
                 presentation: .push
             )
             .addRoute(
-                screenType: DevDetailView.self,
+                screen: DevDetailView.self,
                 state: $viewModel.state.sheetDetailState,
                 presentation: .sheet
             )
             .addRoute(
-                screenType: DevDetailView.self,
+                screen: DevDetailView.self,
                 state: $viewModel.state.fullScreenDetailState,
                 presentation: .fullscreen
             )

@@ -14,7 +14,7 @@ struct ArchDemoApp: App {
         WindowGroup {
             Text("SPLASH SCREEN")
                 .addRoute(
-                    screenType: DevListView.self,
+                    screen: DevListView.self,
                     state: $listState,
                     presentation: .fullscreen
                 )

@@ -66,7 +66,7 @@ struct Route<Destination: View, State>: ViewModifier {
 
 extension View {
     func addRoute<Screen: ScreenView>(
-        screenType: Screen.Type,
+        screen: Screen.Type,
         state: Binding<Screen.ViewM.State?>,
         presentation: RoutePresentation
     ) -> some View {
