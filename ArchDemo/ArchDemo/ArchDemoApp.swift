@@ -13,7 +13,8 @@ struct ArchDemoApp: App {
     var body: some Scene {
         WindowGroup {
             Text("SPLASH SCREEN")
-                .addListRoute(
+                .addRoute(
+                    screenType: DevListView.self,
                     state: $listState,
                     presentation: .fullscreen
                 )

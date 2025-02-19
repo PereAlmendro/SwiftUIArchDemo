@@ -49,7 +49,7 @@ final class DevListViewModel: ViewModel {
             loadDevelopers()
 
         case .onDeveloperTap(let dev):
-            state.pushDetailState = .init(devId: dev.id)
+            break
 
         case .requestPushNavigation:
             state.pushDetailState = .init(devId: "1")

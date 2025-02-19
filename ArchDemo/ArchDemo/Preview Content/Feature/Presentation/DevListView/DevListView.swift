@@ -7,8 +7,12 @@
 
 import SwiftUI
 
-struct DevListView: View {
+struct DevListView: ScreenView {
+    typealias ViewM = DevListViewModel
     @StateObject var viewModel: DevListViewModel
+    init(viewModel: DevListViewModel) {
+        _viewModel = StateObject(wrappedValue: viewModel)
+    }
 
     var body: some View {
         NavigationStack {
@@ -43,15 +47,18 @@ struct DevListView: View {
             .padding()
             .navigationTitle("Developers")
             // MARK: - Add routing
-            .addDetailRoute(
+            .addRoute(
+                screenType: DevDetailView.self,
                 state: $viewModel.state.pushDetailState,
                 presentation: .push
             )
-            .addDetailRoute(
+            .addRoute(
+                screenType: DevDetailView.self,
                 state: $viewModel.state.sheetDetailState,
                 presentation: .sheet
             )
-            .addDetailRoute(
+            .addRoute(
+                screenType: DevDetailView.self,
                 state: $viewModel.state.fullScreenDetailState,
                 presentation: .fullscreen
             )

@@ -7,8 +7,13 @@
 
 import SwiftUI
 
-struct DevDetailView: View {
+struct DevDetailView: ScreenView {
+    typealias ViewM = DevDetailViewModel
     @StateObject var viewModel: DevDetailViewModel
+    init(viewModel: DevDetailViewModel) {
+        _viewModel = StateObject(wrappedValue: viewModel)
+    }
+
     @Environment(\.dismiss) var dismiss
 
     var body: some View {

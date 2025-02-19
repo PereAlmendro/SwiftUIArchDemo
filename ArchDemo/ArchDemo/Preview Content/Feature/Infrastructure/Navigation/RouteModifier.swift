@@ -63,3 +63,22 @@ struct Route<Destination: View, State>: ViewModifier {
         }
     }
 }
+
+extension View {
+    func addRoute<Screen: ScreenView>(
+        screenType: Screen.Type,
+        state: Binding<Screen.ViewM.State?>,
+        presentation: RoutePresentation
+    ) -> some View {
+        modifier(Route(
+            state: state,
+            presentation: presentation,
+            destination: {
+                if let state = state.wrappedValue {
+                    let viewModel = Screen.ViewM(state: state)
+                    Screen(viewModel: viewModel)
+                }
+            }
+        ))
+    }
+}
