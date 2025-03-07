@@ -9,7 +9,7 @@ import SwiftUI
 
 @MainActor
 protocol ViewModel: ObservableObject {
-    associatedtype State
+    associatedtype State: Sendable
     associatedtype Action
 
     var state: State { get }

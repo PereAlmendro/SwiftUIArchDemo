@@ -9,8 +9,6 @@ import Foundation
 
 struct GetDevelopersUseCase {
 
-    typealias UseCase = () async throws -> [Developer]
-
     @Dependency(\.repository) var repository
 
     func execute() async throws -> [Developer] {
@@ -22,12 +20,12 @@ struct GetDevelopersUseCase {
 // MARK: - Add dependency to the Dependency manager
 
 extension GetDevelopersUseCase: DependencyKey {
-    static var liveValue: GetDevelopersUseCase.UseCase =
-    GetDevelopersUseCase().execute
+    static let liveValue: GetDevelopersUseCase =
+    GetDevelopersUseCase()
 }
 
 extension DependencyValues {
-    var getDevelopers: GetDevelopersUseCase.UseCase {
+    var getDevelopers: GetDevelopersUseCase {
         get { self[GetDevelopersUseCase.self] }
         set { self[GetDevelopersUseCase.self] = newValue }
     }

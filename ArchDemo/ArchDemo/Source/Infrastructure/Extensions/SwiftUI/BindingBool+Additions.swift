@@ -9,7 +9,7 @@ import SwiftUI
 
 extension Binding<Bool> {
     /// Create a binding bool that reacts to the nullability of the received object
-    static func isNotNil<T>(_ object: Binding<T?>) -> Self {
+    static func isNotNil<T: Sendable>(_ object: Binding<T?>) -> Self {
         .init(
             get: { object.wrappedValue != nil },
             set: { if !$0 { object.wrappedValue = nil } }

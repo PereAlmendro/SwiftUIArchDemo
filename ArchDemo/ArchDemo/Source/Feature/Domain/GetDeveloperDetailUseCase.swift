@@ -10,10 +10,6 @@ import Dependencies
 
 struct GetDeveloperDetailUseCase {
 
-    typealias UseCase = (
-        _ id: String
-    ) async throws -> DeveloperDetail
-
     @Dependency(\.repository) var repository
 
     func execute(id: String) async throws -> DeveloperDetail {
@@ -24,12 +20,12 @@ struct GetDeveloperDetailUseCase {
 // MARK: - Add dependency to the Dependency manager
 
 extension GetDeveloperDetailUseCase: DependencyKey {
-    static var liveValue: GetDeveloperDetailUseCase.UseCase =
-    GetDeveloperDetailUseCase().execute(id:)
+    static let liveValue: GetDeveloperDetailUseCase =
+    GetDeveloperDetailUseCase()
 }
 
 extension DependencyValues {
-    var getDeveloperDetail: GetDeveloperDetailUseCase.UseCase {
+    var getDeveloperDetail: GetDeveloperDetailUseCase {
         get { self[GetDeveloperDetailUseCase.self] }
         set { self[GetDeveloperDetailUseCase.self] = newValue }
     }

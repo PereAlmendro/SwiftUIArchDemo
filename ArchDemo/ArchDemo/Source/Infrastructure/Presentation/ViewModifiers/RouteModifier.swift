@@ -17,7 +17,7 @@ enum RoutePresentation {
 
 /// Manages the navigation logic given a state.
 /// The navigation is fired when the state contains value, and dismissed if the state becames nil.
-struct RouteModifier<Destination: View, VState>: ViewModifier {
+struct RouteModifier<Destination: View, VState: Sendable>: ViewModifier {
 
     @Binding var state: VState?
     let presentation: RoutePresentation

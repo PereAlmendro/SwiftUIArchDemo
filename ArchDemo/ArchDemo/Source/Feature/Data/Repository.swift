@@ -62,7 +62,7 @@ struct Repository: RepositoryProtocol {
 // MARK: - Add dependency to the Dependency manager
 
 extension Repository: DependencyKey {
-    static var liveValue: RepositoryProtocol = Repository()
+    static let liveValue: RepositoryProtocol = Repository()
 }
 
 extension DependencyValues {

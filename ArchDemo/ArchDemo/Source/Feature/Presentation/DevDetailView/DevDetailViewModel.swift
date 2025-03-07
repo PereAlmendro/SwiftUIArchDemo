@@ -51,7 +51,7 @@ private extension DevDetailViewModel {
             try? await Task.sleep(for: .seconds(1))
             var newState = state
             do {
-                newState.devDetail = try await getDetail(state.devId)
+                newState.devDetail = try await getDetail.execute(id: state.devId)
             } catch {
                 newState.error = error.localizedDescription
             }

@@ -74,7 +74,7 @@ private extension DevListViewModel {
             Thread.printCurrent(label: "VIEWMODEL")
             var newState = state
             do {
-                newState.developers = try await getDevelopers()
+                newState.developers = try await getDevelopers.execute()
             } catch {
                 newState.error = error.localizedDescription
             }
