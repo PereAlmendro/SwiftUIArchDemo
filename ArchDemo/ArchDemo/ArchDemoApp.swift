@@ -11,6 +11,7 @@ import SwiftUI
 struct ArchDemoApp: App {
     @State var listState: DevListViewModel.State?
     @State var mainState: MainViewModel.State?
+    @State var vibrationState: VibrationsViewModel.State?
     var body: some Scene {
         WindowGroup {
             NavigationView {
@@ -26,6 +27,12 @@ struct ArchDemoApp: App {
                             mainState = .init()
                         }
                         .foregroundStyle(.blue)
+                    Text("VIBRATIONS DEMO")
+                        .onTapGesture {
+                            vibrationState = .init()
+                        }
+                        .foregroundStyle(.blue)
+
                     Spacer()
                 }
 
@@ -39,6 +46,11 @@ struct ArchDemoApp: App {
             .addRoute(
                 screen: MainView.self,
                 state: $mainState,
+                presentation: .fullscreen
+            )
+            .addRoute(
+                screen: VibrationsView.self,
+                state: $vibrationState,
                 presentation: .fullscreen
             )
         }
