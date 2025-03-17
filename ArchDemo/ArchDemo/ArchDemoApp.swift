@@ -9,15 +9,38 @@ import SwiftUI
 
 @main
 struct ArchDemoApp: App {
-    @State var listState: DevListViewModel.State? = DevListViewModel.State()
+    @State var listState: DevListViewModel.State?
+    @State var mainState: MainViewModel.State?
     var body: some Scene {
         WindowGroup {
-            Text("SPLASH SCREEN")
-                .addRoute(
-                    screen: DevListView.self,
-                    state: $listState,
-                    presentation: .fullscreen
-                )
+            NavigationView {
+                VStack {
+                    Spacer()
+                    Text("LIST DETAIL DEMO")
+                        .onTapGesture {
+                            listState = .init()
+                        }
+                        .foregroundStyle(.blue)
+                    Text("FLOW DEMO")
+                        .onTapGesture {
+                            mainState = .init()
+                        }
+                        .foregroundStyle(.blue)
+                    Spacer()
+                }
+
+
+            }
+            .addRoute(
+                screen: DevListView.self,
+                state: $listState,
+                presentation: .fullscreen
+            )
+            .addRoute(
+                screen: MainView.self,
+                state: $mainState,
+                presentation: .fullscreen
+            )
         }
 
     }

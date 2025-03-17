@@ -19,6 +19,7 @@ final class DevDetailViewModel: ViewModel {
         var devDetail: DeveloperDetail?
 
         // MARK: - Navigations
+        var mainState: MainViewModel.State?
 
         // MARK: - UI & Computed properties
         var loading: Bool = true
@@ -32,11 +33,14 @@ final class DevDetailViewModel: ViewModel {
     // MARK: - Actions
     enum Action {
         case loadData
+        case navigateToMain
     }
     func send(action: Action) {
         switch action {
         case .loadData:
             loadDetail()
+        case .navigateToMain:
+            state.mainState = .init()
         }
     }
 }
@@ -48,7 +52,6 @@ private extension DevDetailViewModel {
     func loadDetail() {
         state.loading = true
         Task {
-            try? await Task.sleep(for: .seconds(1))
             var newState = state
             do {
                 newState.devDetail = try await getDetail.execute(id: state.devId)

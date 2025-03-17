@@ -17,7 +17,7 @@ struct DevDetailView: ScreenView {
     @Environment(\.dismiss) var dismiss
 
     var body: some View {
-        NavigationStack {
+        NavigationView {
             if !viewModel.state.loading,
                let detail = viewModel.state.devDetail {
                 VStack(alignment: .leading) {
@@ -47,11 +47,22 @@ struct DevDetailView: ScreenView {
                     )
                     Spacer()
 
+                    Button(
+                        action: { viewModel.send(action: .navigateToMain) },
+                        label: { Text("Open MAIN") }
+                    )
+
+                    Spacer()
 
                 }
                 .frame(maxWidth: .infinity)
                 .padding()
                 .navigationTitle(detail.name)
+                .addRoute(
+                    screen: MainView.self,
+                    state: $viewModel.state.mainState,
+                    presentation: .fullscreen
+                )
             } else {
                 Text("Loading...")
                     .onAppear {

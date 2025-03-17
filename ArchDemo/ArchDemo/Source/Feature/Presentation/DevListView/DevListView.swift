@@ -15,7 +15,7 @@ struct DevListView: ScreenView {
     }
 
     var body: some View {
-        NavigationStack {
+        NavigationView {
             VStack(spacing: 16) {
                 DevelopersList(
                     developers: $viewModel.state.developers,

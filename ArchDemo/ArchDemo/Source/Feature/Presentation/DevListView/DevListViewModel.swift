@@ -48,7 +48,7 @@ final class DevListViewModel: ViewModel {
         case .loadData:
             loadDevelopers()
 
-        case .onDeveloperTap(let dev):
+        case .onDeveloperTap(_):
             break
 
         case .requestPushNavigation:
