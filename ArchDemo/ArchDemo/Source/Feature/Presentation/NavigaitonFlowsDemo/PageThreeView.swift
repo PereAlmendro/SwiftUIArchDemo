@@ -58,7 +58,7 @@ struct PageThreeView: ScreenView {
             .addRoute(
                 screen: PageFourView.self,
                 state: $viewModel.state.pageState,
-                presentation: .fullscreen
+                presentation: .push
             )
         }
     }
