@@ -53,7 +53,7 @@ struct PageTwoView: ScreenView {
             })
             Spacer()
         }
-        .navigationTitle(viewModel.state.title)
+        .toolbar(viewModel.state.title)
         .addRoute(
             screen: PageThreeView.self,
             state: $viewModel.state.pageState,

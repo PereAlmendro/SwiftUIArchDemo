@@ -54,6 +54,6 @@ struct LastPageView: ScreenView {
             })
             Spacer()
         }
-        .navigationTitle(viewModel.state.title)
+        .toolbar(viewModel.state.title)
     }
 }

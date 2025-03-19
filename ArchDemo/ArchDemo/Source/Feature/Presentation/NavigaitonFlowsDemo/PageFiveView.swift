@@ -53,7 +53,7 @@ struct PageFiveView: ScreenView {
             })
             Spacer()
         }
-        .navigationTitle(viewModel.state.title)
+        .toolbar(viewModel.state.title)
         .addRoute(
             screen: LastPageView.self,
             state: $viewModel.state.pageState,

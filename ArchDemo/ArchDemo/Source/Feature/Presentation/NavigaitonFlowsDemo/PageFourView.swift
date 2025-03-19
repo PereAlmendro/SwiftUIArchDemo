@@ -42,18 +42,20 @@ struct PageFourView: ScreenView {
         _viewModel = StateObject(wrappedValue: viewModel)
     }
 
+    @Environment(\.dismiss) var dismiss
+
     var body: some View {
-        VStack {
-            Spacer()
-            Text(viewModel.state.title)
-            Button(action: {
-                viewModel.send(action: .navigate)
-            }, label: {
-                Text("Navigate to page 5")
-            })
-            Spacer()
+        ScrollView {
+            VStack {
+                Text(viewModel.state.title)
+                Button(action: {
+                    viewModel.send(action: .navigate)
+                }, label: {
+                    Text("Navigate to page 5")
+                })
+            }
         }
-        .navigationTitle(viewModel.state.title)
+        .toolbar(viewModel.state.title)
         .addRoute(
             screen: PageFiveView.self,
             state: $viewModel.state.pageState,
