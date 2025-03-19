@@ -39,14 +39,13 @@ struct RouteModifier<
                 )
 
         case .push:
-            // iOS >= 16 push navigation ( requires view to be inside a NavigationStack )
-            // this can only be used when the minimum supported version is iOS 16.0
-//            content
-//                .navigationDestination(
-//                    isPresented: $isPresented,
-//                    destination: destination
-//                )
-            // iOS < 16 push navigation ( requires view to be inside a NavigationView )
+            if #available(iOS 16, *) {
+                content
+                    .navigationDestination(
+                        isPresented: $isPresented,
+                        destination: destination
+                    )
+            } else {
                 ZStack {
                     PushNavigation(
                         isActive: $isPresented,
@@ -55,6 +54,7 @@ struct RouteModifier<
                     )
                     content
                 }
+            }
 
         case .sheet:
             content

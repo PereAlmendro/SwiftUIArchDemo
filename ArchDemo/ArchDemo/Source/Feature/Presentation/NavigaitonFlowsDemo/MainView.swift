@@ -46,7 +46,7 @@ struct MainView: ScreenView {
     }
 
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack {
                 Spacer()
                 Button(action: {

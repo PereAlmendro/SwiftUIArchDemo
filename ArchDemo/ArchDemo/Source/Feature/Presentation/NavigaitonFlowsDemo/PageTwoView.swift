@@ -43,23 +43,21 @@ struct PageTwoView: ScreenView {
     }
 
     var body: some View {
-        NavigationView {
-            VStack {
-                Spacer()
-                Text(viewModel.state.title)
-                Button(action: {
-                    viewModel.send(action: .navigate)
-                }, label: {
-                    Text("Navigate to page 3")
-                })
-                Spacer()
-            }
-            .navigationTitle(viewModel.state.title)
-            .addRoute(
-                screen: PageThreeView.self,
-                state: $viewModel.state.pageState,
-                presentation: .push
-            )
+        VStack {
+            Spacer()
+            Text(viewModel.state.title)
+            Button(action: {
+                viewModel.send(action: .navigate)
+            }, label: {
+                Text("Navigate to page 3")
+            })
+            Spacer()
         }
+        .navigationTitle(viewModel.state.title)
+        .addRoute(
+            screen: PageThreeView.self,
+            state: $viewModel.state.pageState,
+            presentation: .push
+        )
     }
 }

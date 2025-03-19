@@ -43,7 +43,7 @@ struct PageOneView: ScreenView {
     }
 
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack {
                 Spacer()
                 Text(viewModel.state.title)
