@@ -12,7 +12,7 @@ struct NavigationItem: Identifiable {
     enum ItemType {
         case back
         case close
-        case custom(Image)
+        case image(Image)
         case text(String)
     }
 
@@ -73,7 +73,7 @@ struct NavigationItems: View {
                         Image(systemName: "chevron.left")
                     case .close:
                         Image(systemName: "xmark")
-                    case .custom(let image):
+                    case .image(let image):
                         image
                     case .text(let text):
                         Text(text)

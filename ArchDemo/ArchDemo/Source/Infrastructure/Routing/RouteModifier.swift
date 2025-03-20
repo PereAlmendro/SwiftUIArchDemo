@@ -14,8 +14,6 @@ enum RoutePresentation {
     case sheet(Set<PresentationDetent> = [])
 }
 
-/// Manages the navigation logic given a state.
-/// The navigation is fired when the state contains value, and dismissed if the state becames nil.
 struct RouteModifier<Destination: View>: ViewModifier {
 
     @Binding var isPresented: Bool
@@ -68,8 +66,9 @@ struct RouteModifier<Destination: View>: ViewModifier {
 
 extension View {
     /// This method is meant to present complete ScreenViews
+    /// the navigation is fired depending on the state nullabillity
     /// screen: The Screen type conforming to ScreenView protocol
-    /// state: The screen state of the destination view
+    /// state: The screen state of the destination view to which bind the presentation
     /// presentation: The presentation type
     /// onDismiss: Fired on dismissal
     func addRoute<Screen: ScreenView>(
@@ -92,6 +91,7 @@ extension View {
     }
 
     /// This method is meant to present any View not confirming the ScreenView protocol
+    /// the navigation is fired depending on the state nullabillity
     /// State: The state to which bind the presentation
     /// presentation: The presentation type
     /// onDismiss: Fired on dismissal
