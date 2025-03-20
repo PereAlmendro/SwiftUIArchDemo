@@ -10,7 +10,7 @@ import Dependencies
 
 struct GetDeveloperDetailUseCase {
 
-    @Dependency(\.repository) var repository
+    @Dependency(\.repository) private var repository
 
     func execute(id: String) async throws -> DeveloperDetail {
         try await repository.getDeveloperDetail(id: id)

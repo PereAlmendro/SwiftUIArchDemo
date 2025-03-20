@@ -36,12 +36,12 @@ final class LastPageViewModel: ViewModel {
 
 struct LastPageView: ScreenView {
     typealias ViewM = LastPageViewModel
-    @StateObject var viewModel: LastPageViewModel
+    @StateObject private var viewModel: LastPageViewModel
     init(viewModel: LastPageViewModel) {
         _viewModel = StateObject(wrappedValue: viewModel)
     }
 
-    @EnvironmentObject var mainViewModel: MainViewModel
+    @EnvironmentObject private var mainViewModel: MainViewModel
 
     var body: some View {
         VStack {

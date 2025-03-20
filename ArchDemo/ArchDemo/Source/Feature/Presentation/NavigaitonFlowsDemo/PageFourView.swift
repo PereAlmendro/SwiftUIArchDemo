@@ -37,12 +37,12 @@ final class PageFourViewModel: ViewModel {
 
 struct PageFourView: ScreenView {
     typealias ViewM = PageFourViewModel
-    @StateObject var viewModel: PageFourViewModel
+    @StateObject private var viewModel: PageFourViewModel
     init(viewModel: PageFourViewModel) {
         _viewModel = StateObject(wrappedValue: viewModel)
     }
 
-    @Environment(\.dismiss) var dismiss
+    @Environment(\.dismiss) private var dismiss
 
     var body: some View {
         ScrollView {

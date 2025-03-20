@@ -41,7 +41,7 @@ final class PageTwoViewModel: ViewModel {
 
 struct PageTwoView: ScreenView {
     typealias ViewM = PageTwoViewModel
-    @StateObject var viewModel: PageTwoViewModel
+    @StateObject private var viewModel: PageTwoViewModel
     init(viewModel: PageTwoViewModel) {
         _viewModel = StateObject(wrappedValue: viewModel)
     }

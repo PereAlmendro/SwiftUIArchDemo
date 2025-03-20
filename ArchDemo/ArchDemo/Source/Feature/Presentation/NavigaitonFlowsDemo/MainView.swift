@@ -40,7 +40,7 @@ final class MainViewModel: ViewModel {
 
 struct MainView: ScreenView {
     typealias ViewM = MainViewModel
-    @StateObject var viewModel: MainViewModel
+    @StateObject private var viewModel: MainViewModel
     init(viewModel: MainViewModel) {
         _viewModel = StateObject(wrappedValue: viewModel)
     }

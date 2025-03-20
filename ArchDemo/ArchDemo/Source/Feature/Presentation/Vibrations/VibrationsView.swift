@@ -35,84 +35,91 @@ final class VibrationsViewModel: ViewModel {
 
 struct VibrationsView: ScreenView {
     typealias ViewM = VibrationsViewModel
-    @StateObject var viewModel: VibrationsViewModel
+    @StateObject private var viewModel: VibrationsViewModel
     init(viewModel: VibrationsViewModel) {
         _viewModel = StateObject(wrappedValue: viewModel)
     }
 
+    @Environment(\.dismiss) var dismiss
+
     var body: some View {
-        ScrollView {
-            VStack {
-                Text("error")
-                    .padding(16)
-                    .foregroundStyle(.blue)
-                    .onTapGesture {
-                        viewModel.send(action: .vibrate(.error))
-                    }
-
-                Text("success")
-                    .padding(16)
-                    .foregroundStyle(.blue)
-                    .onTapGesture {
-                        viewModel.send(action: .vibrate(.success))
-                    }
-
-                Text("warning")
-                    .padding(16)
-                    .foregroundStyle(.blue)
-                    .onTapGesture {
-                        viewModel.send(action: .vibrate(.warning))
-                    }
-
-                Text("light")
-                    .padding(16)
-                    .foregroundStyle(.blue)
-                    .onTapGesture {
-                        viewModel.send(action: .vibrate(.light))
-                    }
-
-                Text("medium")
-                    .padding(16)
-                    .foregroundStyle(.blue)
-                    .onTapGesture {
-                        viewModel.send(action: .vibrate(.medium))
-                    }
-
-                Text("heavy")
-                    .padding(16)
-                    .foregroundStyle(.blue)
-                    .onTapGesture {
-                        viewModel.send(action: .vibrate(.heavy))
-                    }
-
-                Text("soft")
-                    .padding(16)
-                    .foregroundStyle(.blue)
-                    .onTapGesture {
-                        viewModel.send(action: .vibrate(.soft))
-                    }
-
-                Text("rigid")
-                    .padding(16)
-                    .foregroundStyle(.blue)
-                    .onTapGesture {
-                        viewModel.send(action: .vibrate(.rigid))
-                    }
-
-                Text("selection")
-                    .padding(16)
-                    .foregroundStyle(.blue)
-                    .onTapGesture {
-                        viewModel.send(action: .vibrate(.selection))
-                    }
-
-                Text("oldSchool")
-                    .padding(16)
-                    .foregroundStyle(.blue)
-                    .onTapGesture {
-                        viewModel.send(action: .vibrate(.oldSchool))
-                    }
+        NavigationView {
+            ScrollView {
+                VStack {
+                    Text("error")
+                        .padding(16)
+                        .foregroundStyle(.blue)
+                        .onTapGesture {
+                            viewModel.send(action: .vibrate(.error))
+                        }
+                    
+                    Text("success")
+                        .padding(16)
+                        .foregroundStyle(.blue)
+                        .onTapGesture {
+                            viewModel.send(action: .vibrate(.success))
+                        }
+                    
+                    Text("warning")
+                        .padding(16)
+                        .foregroundStyle(.blue)
+                        .onTapGesture {
+                            viewModel.send(action: .vibrate(.warning))
+                        }
+                    
+                    Text("light")
+                        .padding(16)
+                        .foregroundStyle(.blue)
+                        .onTapGesture {
+                            viewModel.send(action: .vibrate(.light))
+                        }
+                    
+                    Text("medium")
+                        .padding(16)
+                        .foregroundStyle(.blue)
+                        .onTapGesture {
+                            viewModel.send(action: .vibrate(.medium))
+                        }
+                    
+                    Text("heavy")
+                        .padding(16)
+                        .foregroundStyle(.blue)
+                        .onTapGesture {
+                            viewModel.send(action: .vibrate(.heavy))
+                        }
+                    
+                    Text("soft")
+                        .padding(16)
+                        .foregroundStyle(.blue)
+                        .onTapGesture {
+                            viewModel.send(action: .vibrate(.soft))
+                        }
+                    
+                    Text("rigid")
+                        .padding(16)
+                        .foregroundStyle(.blue)
+                        .onTapGesture {
+                            viewModel.send(action: .vibrate(.rigid))
+                        }
+                    
+                    Text("selection")
+                        .padding(16)
+                        .foregroundStyle(.blue)
+                        .onTapGesture {
+                            viewModel.send(action: .vibrate(.selection))
+                        }
+                    
+                    Text("oldSchool")
+                        .padding(16)
+                        .foregroundStyle(.blue)
+                        .onTapGesture {
+                            viewModel.send(action: .vibrate(.oldSchool))
+                        }
+                }
             }
+            .toolbar("Vibrations type", leftItems: [
+                .init(type: .back, action: { dismiss() })
+            ])
         }
     }
 }

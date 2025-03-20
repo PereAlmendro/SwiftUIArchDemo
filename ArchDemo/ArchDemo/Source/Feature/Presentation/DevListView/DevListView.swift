@@ -9,13 +9,15 @@ import SwiftUI
 
 struct DevListView: ScreenView {
     typealias ViewM = DevListViewModel
-    @StateObject var viewModel: DevListViewModel
+    @StateObject private var viewModel: DevListViewModel
     init(viewModel: DevListViewModel) {
         _viewModel = StateObject(wrappedValue: viewModel)
     }
 
+    @Environment(\.dismiss) private var dismiss
+
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack(spacing: 24) {
                 DevelopersList(
                     developers: $viewModel.state.developers,
@@ -45,7 +47,9 @@ struct DevListView: ScreenView {
                 Spacer()
             }
             .padding()
-            .navigationTitle("Developers")
+            .toolbar("Developers", leftItems: [
+                .init(type: .back, action: { dismiss() })
+            ])
             // MARK: - Add routing
             .addRoute(
                 screen: DevDetailView.self,

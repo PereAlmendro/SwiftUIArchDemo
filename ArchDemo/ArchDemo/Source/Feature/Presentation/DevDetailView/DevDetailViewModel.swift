@@ -10,7 +10,7 @@ import Dependencies
 
 final class DevDetailViewModel: ViewModel {
     // MARK: - Dependencies
-    @Dependency(\.getDeveloperDetail) var getDetail
+    @Dependency(\.getDeveloperDetail) private var getDetail
 
     // MARK: - State
     struct State {

@@ -9,7 +9,7 @@ import Foundation
 
 struct GetDevelopersUseCase {
 
-    @Dependency(\.repository) var repository
+    @Dependency(\.repository) private var repository
 
     func execute() async throws -> [Developer] {
         Thread.printCurrent(label: "USECASE")

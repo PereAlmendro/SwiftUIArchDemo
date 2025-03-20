@@ -37,7 +37,7 @@ final class PageThreeViewModel: ViewModel {
 
 struct PageThreeView: ScreenView {
     typealias ViewM = PageThreeViewModel
-    @StateObject var viewModel: PageThreeViewModel
+    @StateObject private var viewModel: PageThreeViewModel
     init(viewModel: PageThreeViewModel) {
         _viewModel = StateObject(wrappedValue: viewModel)
     }
