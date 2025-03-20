@@ -17,10 +17,7 @@ final class DevDetailViewModel: ViewModel {
         // MARK: - Data
         let devId: String
         var devDetail: DeveloperDetail?
-
         // MARK: - Navigations
-        var mainState: MainViewModel.State?
-
         // MARK: - UI & Computed properties
         var loading: Bool = true
         var error: String?
@@ -33,14 +30,11 @@ final class DevDetailViewModel: ViewModel {
     // MARK: - Actions
     enum Action {
         case loadData
-        case navigateToMain
     }
     func send(action: Action) {
         switch action {
         case .loadData:
             loadDetail()
-        case .navigateToMain:
-            state.mainState = .init()
         }
     }
 }

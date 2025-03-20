@@ -16,7 +16,7 @@ struct DevListView: ScreenView {
 
     var body: some View {
         NavigationView {
-            VStack(spacing: 16) {
+            VStack(spacing: 24) {
                 DevelopersList(
                     developers: $viewModel.state.developers,
                     onDeveloperTap: { developer in
@@ -55,7 +55,7 @@ struct DevListView: ScreenView {
             .addRoute(
                 screen: DevDetailView.self,
                 state: $viewModel.state.sheetDetailState,
-                presentation: .sheet
+                presentation: .sheet()
             )
             .addRoute(
                 screen: DevDetailView.self,

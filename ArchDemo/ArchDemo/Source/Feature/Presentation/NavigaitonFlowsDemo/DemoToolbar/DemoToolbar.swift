@@ -9,8 +9,10 @@ import Foundation
 import SwiftUI
 
 extension View {
-    func toolbar(_ title: String) -> some View {
-        modifier(Toolbar(title: title))
+    func toolbar(_ title: String, showBackButton: Bool = true) -> some View {
+        modifier(Toolbar(
+            title: title, showBackButton: showBackButton
+        ))
     }
 }
 

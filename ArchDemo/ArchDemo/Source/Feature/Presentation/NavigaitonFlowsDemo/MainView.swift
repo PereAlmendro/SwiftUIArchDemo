@@ -46,16 +46,17 @@ struct MainView: ScreenView {
     }
 
     var body: some View {
-        NavigationStack {
+        NavigationView {
             VStack {
                 Spacer()
                 Button(action: {
                     viewModel.send(action: .navigate)
                 }, label: {
-                    Text("Navigate to page 1")
+                    Text("Start flow")
                 })
                 Spacer()
             }
+            .toolbar("Main")
             .addRoute(
                 screen: PageOneView.self,
                 state: $viewModel.state.pageState,
