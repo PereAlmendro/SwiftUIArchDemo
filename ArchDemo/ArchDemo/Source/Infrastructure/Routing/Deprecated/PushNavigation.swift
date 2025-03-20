@@ -7,24 +7,18 @@
 import SwiftUI
 
 @available(*, deprecated, message: "To be deleted when minimum supported version >= iOS 16.0")
-struct PushNavigation<Content: View, Label: View>: View {
+struct PushNavigation<Content: View>: View {
     @Binding var isActive: Bool
     @ViewBuilder private var destination: () -> Content
-    @ViewBuilder private var label: () -> Label
-    private var onTap: () -> Void
     private var onDismiss: () -> Void
 
     init(
         isActive: Binding<Bool>,
         @ViewBuilder destination: @escaping () -> Content,
-        @ViewBuilder label: @escaping () -> Label = { Color.clear.frame(height: .zero) },
-        onTap: @escaping () -> Void = { },
         onDismiss: @escaping () -> Void = { }
     ) {
         _isActive = isActive
         self.destination = destination
-        self.label = label
-        self.onTap = onTap
         self.onDismiss = onDismiss
     }
 
@@ -36,10 +30,7 @@ struct PushNavigation<Content: View, Label: View>: View {
                     .navigationBarHidden(true)
                     .onDisappear(perform: onDismiss)
             },
-            label: label
+            label: { Color.clear.frame(height: .zero) }
         )
-        .simultaneousGesture(TapGesture().onEnded {
-            onTap()
-        })
     }
 }

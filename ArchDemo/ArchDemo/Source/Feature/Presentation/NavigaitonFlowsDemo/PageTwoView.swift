@@ -16,6 +16,7 @@ final class PageTwoViewModel: ViewModel {
         let title: String = "Page two"
         // MARK: - Navigations
         var pageState: PageThreeViewModel.State?
+        var showBottomSheet: Bool = false
         // MARK: - UI & Computed properties
     }
     @Published var state: State
@@ -26,11 +27,14 @@ final class PageTwoViewModel: ViewModel {
     // MARK: - Actions
     enum Action {
         case navigate
+        case showBottomSheet
     }
     func send(action: Action) {
         switch action {
         case .navigate:
             state.pageState = .init()
+        case .showBottomSheet:
+            state.showBottomSheet = true
         }
     }
 }
@@ -42,8 +46,10 @@ struct PageTwoView: ScreenView {
         _viewModel = StateObject(wrappedValue: viewModel)
     }
 
+    @Environment(\.dismiss) private var dismiss
+
     var body: some View {
-        VStack {
+        VStack(spacing: 16) {
             Spacer()
             Text(viewModel.state.title)
             Button(action: {
@@ -51,13 +57,33 @@ struct PageTwoView: ScreenView {
             }, label: {
                 Text("Navigate to page 3")
             })
+            Text("show bottom sheet")
+                .onTapGesture {
+                    viewModel.send(action: .showBottomSheet)
+                }
             Spacer()
         }
-        .toolbar(viewModel.state.title)
+        .toolbar(viewModel.state.title, leftItems: [
+            .init(type: .back, action: {
+                dismiss()
+            })
+        ])
         .addRoute(
             screen: PageThreeView.self,
             state: $viewModel.state.pageState,
             presentation: .push
+        )
+        .addRoute(
+            isPresented: $viewModel.state.showBottomSheet,
+            presentation: .sheet([ .medium ]),
+            destination: {
+                VStack(spacing: 40) {
+                    Text("SOME INFO TITLE")
+                        .font(.headline)
+                    Text("lorem ipsum dolor sit amet ...")
+                        .foregroundStyle(.gray)
+                }
+            }
         )
     }
 }

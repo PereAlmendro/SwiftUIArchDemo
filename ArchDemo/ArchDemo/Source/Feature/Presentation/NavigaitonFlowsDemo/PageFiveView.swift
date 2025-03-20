@@ -42,6 +42,8 @@ struct PageFiveView: ScreenView {
         _viewModel = StateObject(wrappedValue: viewModel)
     }
 
+    @Environment(\.dismiss) private var dismiss
+
     var body: some View {
         VStack {
             Spacer()
@@ -53,7 +55,11 @@ struct PageFiveView: ScreenView {
             })
             Spacer()
         }
-        .toolbar(viewModel.state.title)
+        .toolbar(viewModel.state.title, leftItems: [
+            .init(type: .back, action: {
+                dismiss()
+            })
+        ])
         .addRoute(
             screen: LastPageView.self,
             state: $viewModel.state.pageState,

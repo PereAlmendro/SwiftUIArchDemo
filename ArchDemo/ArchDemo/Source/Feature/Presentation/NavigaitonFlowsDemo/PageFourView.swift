@@ -55,7 +55,11 @@ struct PageFourView: ScreenView {
                 })
             }
         }
-        .toolbar(viewModel.state.title)
+        .toolbar(viewModel.state.title, leftItems: [
+            .init(type: .back, action: {
+                dismiss()
+            })
+        ])
         .addRoute(
             screen: PageFiveView.self,
             state: $viewModel.state.pageState,

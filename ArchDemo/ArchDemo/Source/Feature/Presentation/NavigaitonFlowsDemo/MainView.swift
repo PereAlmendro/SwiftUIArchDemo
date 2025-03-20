@@ -45,6 +45,8 @@ struct MainView: ScreenView {
         _viewModel = StateObject(wrappedValue: viewModel)
     }
 
+    @Environment(\.dismiss) private var dismiss
+
     var body: some View {
         NavigationView {
             VStack {
@@ -56,7 +58,11 @@ struct MainView: ScreenView {
                 })
                 Spacer()
             }
-            .toolbar("Main")
+            .toolbar("Main", leftItems: [
+                .init(type: .close, action: {
+                    dismiss()
+                })
+            ])
             .addRoute(
                 screen: PageOneView.self,
                 state: $viewModel.state.pageState,

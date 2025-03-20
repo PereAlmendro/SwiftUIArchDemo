@@ -11,7 +11,7 @@ import SwiftUI
 final class PageOneViewModel: ViewModel {
     // MARK: - Dependencies
     // MARK: - State
-    struct State {
+    struct State: Sendable {
         // MARK: - Data
         let title: String = "Page one"
         // MARK: - Navigations
@@ -42,6 +42,8 @@ struct PageOneView: ScreenView {
         _viewModel = StateObject(wrappedValue: viewModel)
     }
 
+    @Environment(\.dismiss) private var dismiss
+
     var body: some View {
         NavigationStack {
             VStack {
@@ -54,7 +56,11 @@ struct PageOneView: ScreenView {
                 })
                 Spacer()
             }
-            .toolbar(viewModel.state.title)
+            .toolbar(viewModel.state.title, leftItems: [
+                .init(type: .back, action: {
+                    dismiss()
+                })
+            ])
             .addRoute(
                 screen: PageTwoView.self,
                 state: $viewModel.state.pageState,
