@@ -34,7 +34,6 @@ final class RetrospectiveBoardViewModel: ViewModel {
     }
 }
 
-
 struct RetrospectiveBoardView: ScreenView {
     typealias ViewM = RetrospectiveBoardViewModel
     @StateObject var viewModel: RetrospectiveBoardViewModel
@@ -48,7 +47,7 @@ struct RetrospectiveBoardView: ScreenView {
         NavigationView {
             ScrollView {
                 VStack {
-                    Text("Retro feature")
+                    Text("retrospective_title")
                 }
             }
             .toolbar(

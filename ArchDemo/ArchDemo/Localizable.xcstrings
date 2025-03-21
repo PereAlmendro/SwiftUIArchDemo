@@ -1,0 +1,116 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "%lld" : {
+
+    },
+    "Done" : {
+
+    },
+    "error" : {
+
+    },
+    "FINISH FLOW" : {
+
+    },
+    "heavy" : {
+
+    },
+    "light" : {
+
+    },
+    "lorem ipsum dolor sit amet ..." : {
+
+    },
+    "medium" : {
+
+    },
+    "Min" : {
+
+    },
+    "Minutes" : {
+
+    },
+    "Navigate to last page" : {
+
+    },
+    "Navigate to page 2" : {
+
+    },
+    "Navigate to page 3" : {
+
+    },
+    "Navigate to page 4" : {
+
+    },
+    "Navigate to page 5" : {
+
+    },
+    "Navigation flow sample" : {
+
+    },
+    "oldSchool" : {
+
+    },
+    "retrospective_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Restrospectives"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Restrospectives"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Retrospectivas"
+          }
+        }
+      }
+    },
+    "rigid" : {
+
+    },
+    "Sec" : {
+
+    },
+    "Seconds" : {
+
+    },
+    "selection" : {
+
+    },
+    "show bottom sheet" : {
+
+    },
+    "soft" : {
+
+    },
+    "SOME INFO TITLE" : {
+
+    },
+    "Start flow" : {
+
+    },
+    "Start Retro" : {
+
+    },
+    "success" : {
+
+    },
+    "System vibrations sample" : {
+
+    },
+    "warning" : {
+
+    }
+  },
+  "version" : "1.0"
+}
