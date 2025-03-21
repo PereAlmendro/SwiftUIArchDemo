@@ -13,7 +13,7 @@ final class RetrospectiveBoardViewModel: ViewModel {
     // MARK: - State
     struct State {
         // MARK: - Data
-        var pageTitle: String = "Hola"
+        var pageTitle: String = "Retrospectives"
         // MARK: - Navigations
         // MARK: - UI & Computed properties
     }
