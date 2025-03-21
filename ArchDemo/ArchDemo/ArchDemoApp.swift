@@ -11,14 +11,14 @@ import SwiftUI
 struct ArchDemoApp: App {
     @State var mainState: MainViewModel.State?
     @State var vibrationState: VibrationsViewModel.State?
-    @State var retroBoardState: RetrospectiveBoardViewModel.State?
+    @State var retroListState: RetrospectivesListViewModel.State?
     var body: some Scene {
         WindowGroup {
             NavigationView {
                 ScrollView {
                     VStack(spacing: 24) {
                         Button {
-                            retroBoardState = .init()
+                            retroListState = .init()
                         } label: {
                             Text("Start Retro")
                                 .font(.headline)
@@ -53,8 +53,8 @@ struct ArchDemoApp: App {
                 presentation: .fullscreen
             )
             .addRoute(
-                screen: RetrospectiveBoardView.self,
-                state: $retroBoardState,
+                screen: RetrospectivesListView.self,
+                state: $retroListState,
                 presentation: .fullscreen
             )
         }

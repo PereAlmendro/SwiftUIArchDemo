@@ -29,7 +29,7 @@ extension View {
         rightItems: [NavigationItem] = []
     ) -> some View {
         modifier(ToolbarModifier(
-            title: title,
+            title: .init(title),
             leftItems: leftItems,
             rightItems: rightItems
         ))
@@ -37,7 +37,7 @@ extension View {
 }
 
 struct ToolbarModifier: ViewModifier {
-    let title: String
+    let title: LocalizedStringKey
     let leftItems: [NavigationItem]
     let rightItems: [NavigationItem]
 
