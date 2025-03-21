@@ -14,11 +14,12 @@ struct NavigationItem: Identifiable {
         case close
         case image(Image)
         case text(String)
+        case custom(() -> any View)
     }
 
     let id: UUID = UUID()
     let type: ItemType
-    let action: () -> Void
+    var action: (() -> Void)?
 }
 
 extension View {
@@ -39,8 +40,6 @@ struct ToolbarModifier: ViewModifier {
     let title: String
     let leftItems: [NavigationItem]
     let rightItems: [NavigationItem]
-
-    @Environment(\.dismiss) private var dismiss
 
     func body(content: Content) -> some View {
         content
@@ -78,10 +77,12 @@ struct NavigationItems: View {
                     case .text(let text):
                         Text(text)
                             .font(.headline)
+                    case .custom(let view):
+                        AnyView(view())
                     }
                 }
                 .onTapGesture {
-                    item.action()
+                    item.action?()
                 }
             }
         }

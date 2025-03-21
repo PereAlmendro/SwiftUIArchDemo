@@ -9,40 +9,39 @@ import SwiftUI
 
 @main
 struct ArchDemoApp: App {
-    @State var listState: DevListViewModel.State?
     @State var mainState: MainViewModel.State?
     @State var vibrationState: VibrationsViewModel.State?
+    @State var retroBoardState: RetrospectiveBoardViewModel.State?
     var body: some Scene {
         WindowGroup {
             NavigationView {
-                VStack {
-                    Spacer()
-                    Text("LIST DETAIL DEMO")
-                        .onTapGesture {
-                            listState = .init()
+                ScrollView {
+                    VStack(spacing: 24) {
+                        Button {
+                            retroBoardState = .init()
+                        } label: {
+                            Text("Start Retro")
+                                .font(.headline)
                         }
-                        .foregroundStyle(.blue)
-                    Text("FLOW DEMO")
-                        .onTapGesture {
+#if DEBUG
+                        Button {
                             mainState = .init()
+                        } label: {
+                            Text("Navigation flow sample")
+                                .font(.headline)
                         }
-                        .foregroundStyle(.blue)
-                    Text("VIBRATIONS DEMO")
-                        .onTapGesture {
+                        Button {
                             vibrationState = .init()
+                        } label: {
+                            Text("System vibrations sample")
+                                .font(.headline)
                         }
-                        .foregroundStyle(.blue)
-
-                    Spacer()
+#endif
+                    }
+                    .frame(maxWidth: .infinity)
                 }
-
-
+                .toolbar("Features")
             }
-            .addRoute(
-                screen: DevListView.self,
-                state: $listState,
-                presentation: .fullscreen
-            )
             .addRoute(
                 screen: MainView.self,
                 state: $mainState,
@@ -53,7 +52,11 @@ struct ArchDemoApp: App {
                 state: $vibrationState,
                 presentation: .fullscreen
             )
+            .addRoute(
+                screen: RetrospectiveBoardView.self,
+                state: $retroBoardState,
+                presentation: .fullscreen
+            )
         }
-
     }
 }
