@@ -2,58 +2,119 @@
   "sourceLanguage" : "en",
   "strings" : {
     "%lld" : {
-
+      "shouldTranslate" : false
     },
-    "Done" : {
-
+    "add" : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Afegir"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Añadir"
+          }
+        }
+      }
+    },
+    "done" : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fet"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hecho"
+          }
+        }
+      }
     },
     "error" : {
-
+      "shouldTranslate" : false
+    },
+    "feature_name_retrospectives" : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Retrospectives"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Retrospectives"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Retrospectivas"
+          }
+        }
+      }
     },
     "FINISH FLOW" : {
-
+      "shouldTranslate" : false
     },
     "heavy" : {
-
+      "shouldTranslate" : false
     },
     "light" : {
-
+      "shouldTranslate" : false
     },
     "lorem ipsum dolor sit amet ..." : {
-
+      "shouldTranslate" : false
     },
     "medium" : {
-
+      "shouldTranslate" : false
     },
-    "Min" : {
-
-    },
-    "Minutes" : {
-
+    "minutes" : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Minuts"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Minutos"
+          }
+        }
+      }
     },
     "Navigate to last page" : {
-
+      "shouldTranslate" : false
     },
     "Navigate to page 2" : {
-
+      "shouldTranslate" : false
     },
     "Navigate to page 3" : {
-
+      "shouldTranslate" : false
     },
     "Navigate to page 4" : {
-
+      "shouldTranslate" : false
     },
     "Navigate to page 5" : {
-
+      "shouldTranslate" : false
     },
     "Navigation flow sample" : {
-
+      "shouldTranslate" : false
     },
     "oldSchool" : {
-
+      "shouldTranslate" : false
     },
     "Retro feature" : {
-
+      "shouldTranslate" : false
     },
     "retrospective_title" : {
       "extractionState" : "manual",
@@ -79,40 +140,47 @@
       }
     },
     "rigid" : {
-
+      "shouldTranslate" : false
     },
-    "Sec" : {
-
-    },
-    "Seconds" : {
-
+    "seconds" : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Segons"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Segundos"
+          }
+        }
+      }
     },
     "selection" : {
-
+      "shouldTranslate" : false
     },
     "show bottom sheet" : {
-
+      "shouldTranslate" : false
     },
     "soft" : {
-
+      "shouldTranslate" : false
     },
     "SOME INFO TITLE" : {
-
+      "shouldTranslate" : false
     },
     "Start flow" : {
-
-    },
-    "Start Retro" : {
-
+      "shouldTranslate" : false
     },
     "success" : {
-
+      "shouldTranslate" : false
     },
     "System vibrations sample" : {
-
+      "shouldTranslate" : false
     },
     "warning" : {
-
+      "shouldTranslate" : false
     }
   },
   "version" : "1.0"

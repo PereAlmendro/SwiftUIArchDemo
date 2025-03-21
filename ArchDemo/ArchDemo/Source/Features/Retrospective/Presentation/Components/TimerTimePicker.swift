@@ -19,7 +19,7 @@ struct TimerTimePicker: View {
         VStack(spacing: 16) {
             HStack {
                 Spacer()
-                Button("Done") {
+                Button(LocalizedStringKey("done")) {
                     onTimeSelected()
                     dismiss()
                 }
@@ -27,9 +27,9 @@ struct TimerTimePicker: View {
 
             HStack {
                 VStack {
-                    Text("Minutes")
+                    Text(LocalizedStringKey("minutes"))
                         .font(.headline)
-                    Picker("Min", selection: $minutes) {
+                    Picker(UUID().uuidString, selection: $minutes) {
                         ForEach(0 ..< 60 ) { index in
                             Text("\(index)").tag(index)
                         }
@@ -37,9 +37,9 @@ struct TimerTimePicker: View {
                     .pickerStyle(.wheel)
                 }
                 VStack {
-                    Text("Seconds")
+                    Text(LocalizedStringKey("seconds"))
                         .font(.headline)
-                    Picker("Sec", selection: $seconds) {
+                    Picker(UUID().uuidString, selection: $seconds) {
                         ForEach(0 ..< 60 ) { index in
                             Text("\(index)").tag(index)
                         }

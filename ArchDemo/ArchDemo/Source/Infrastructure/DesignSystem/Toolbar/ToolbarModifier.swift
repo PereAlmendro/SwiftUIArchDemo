@@ -13,7 +13,7 @@ struct NavigationItem: Identifiable {
         case back
         case close
         case image(Image)
-        case text(String)
+        case text(LocalizedStringKey)
         case custom(() -> any View)
     }
 
@@ -29,7 +29,7 @@ extension View {
         rightItems: [NavigationItem] = []
     ) -> some View {
         modifier(ToolbarModifier(
-            title: .init(title),
+            title: LocalizedStringKey(title),
             leftItems: leftItems,
             rightItems: rightItems
         ))

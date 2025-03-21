@@ -31,7 +31,7 @@ struct RetrospectivesListView: ScreenView {
                 ],
                 rightItems: [
                     .init(
-                        type: .text("Add"),
+                        type: .text(LocalizedStringKey("add")),
                         action: {
                             viewModel.send(action: .onAddRetrospectiveRequested)
                         }

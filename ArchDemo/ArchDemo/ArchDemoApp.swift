@@ -20,7 +20,7 @@ struct ArchDemoApp: App {
                         Button {
                             retroListState = .init()
                         } label: {
-                            Text("Start Retro")
+                            Text(LocalizedStringKey("feature_name_retrospectives"))
                                 .font(.headline)
                         }
 #if DEBUG
